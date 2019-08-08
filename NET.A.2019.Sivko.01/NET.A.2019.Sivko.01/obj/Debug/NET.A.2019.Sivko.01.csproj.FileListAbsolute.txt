@@ -1,0 +1,10 @@
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\obj\Debug\NET.A.2019.Sivko.01.csprojAssemblyReference.cache
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\obj\Debug\NET.A.2019.Sivko.01.csproj.CoreCompileInputs.cache
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\bin\Debug\NET.A.2019.Sivko.01.exe.config
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\bin\Debug\NET.A.2019.Sivko.01.exe
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\bin\Debug\NET.A.2019.Sivko.01.pdb
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\obj\Debug\NET.A.2019.Sivko.01.exe
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\obj\Debug\NET.A.2019.Sivko.01.pdb
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\bin\Debug\Sortings.dll
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\bin\Debug\Sortings.pdb
+D:\Epam\Training's tasks\NET.A.2019.Sivko.01\NET.A.2019.Sivko.01\obj\Debug\NET.A.2019.Sivko.01.csproj.CopyComplete
