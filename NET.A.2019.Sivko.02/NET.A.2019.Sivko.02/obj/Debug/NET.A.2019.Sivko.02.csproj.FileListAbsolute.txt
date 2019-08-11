@@ -1,0 +1,6 @@
+D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.csprojAssemblyReference.cache
+D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.csproj.CoreCompileInputs.cache
+D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\bin\Debug\NET.A.2019.Sivko.02.dll
+D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\bin\Debug\NET.A.2019.Sivko.02.pdb
+D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.dll
+D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.pdb
