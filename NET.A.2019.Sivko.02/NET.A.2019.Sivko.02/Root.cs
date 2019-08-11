@@ -4,6 +4,13 @@ namespace NET.A._2019.Sivko._02
 {
     public class Root
     {
+        /// <summary>
+        /// The FindNthRoot method finds the root of the number by Newton's iterative formula
+        /// </summary>
+        /// <param name="number">Original number</param>
+        /// <param name="root">Root</param>
+        /// <param name="eps">EPS</param>
+        /// <returns>The root of a number with given EPS accuracy</returns>
         public static double FindNthRoot(double number, double root, double eps)
         {
             if (eps < 0)

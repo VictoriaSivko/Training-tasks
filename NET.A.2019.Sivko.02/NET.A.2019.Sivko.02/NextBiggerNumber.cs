@@ -6,6 +6,11 @@ namespace NET.A._2019.Sivko._02
 {
     public class NextBiggerNumber
     {
+        /// <summary>
+        /// The FindNextBiggerNumber method looks for the nearest largest number to the initial one
+        /// </summary>
+        /// <param name="source">Original number</param>
+        /// <returns>The nearest largest number to the initial one</returns>
         public static int FindNextBiggerNumber(int source)
         {
             //create new List with numbers
@@ -31,7 +36,12 @@ namespace NET.A._2019.Sivko._02
             return answer;
         }
 
-        //This method uses the StopWatch class to determine time
+        /// <summary>
+        /// The FindNextBiggerNumber method looks for the nearest largest number to the initial one
+        /// and returns the elapsed time using the StopWatch class
+        /// </summary>
+        /// <param name="source">Original number</param>
+        /// <returns>The nearest largest number to the initial one</returns>
         public static int FindNextBiggerNumber(int source, out Stopwatch time)
         {
             time = Stopwatch.StartNew();
@@ -47,7 +57,6 @@ namespace NET.A._2019.Sivko._02
                 return -1;
             }
                 
-
             //Minimize
             intList = Minimize(intList, index);
 
@@ -64,7 +73,12 @@ namespace NET.A._2019.Sivko._02
             return answer;
         }
 
-        //This method uses DiteTime class to determine time
+        /// <summary>
+        /// The FindNextBiggerNumber method looks for the nearest largest number to the initial one
+        /// and returns the elapsed time using DiteTime class to determine time
+        /// </summary>
+        /// <param name="source">Original number</param>
+        /// <returns>The nearest largest number to the initial one</returns>
         public static int FindNextBiggerNumber(int source, out int time)
         {
             DateTime Start, Stoped;
@@ -103,7 +117,11 @@ namespace NET.A._2019.Sivko._02
             return answer;
         }
 
-        //The method creates a list of numbers
+        /// <summary>
+        /// The СreateList method creates a list of numbers
+        /// </summary>
+        /// <param name="source">Original number</param>
+        /// <returns>List of digits of original number</returns>
         private static List<int> СreateList(int source)
         {
             List<int> intList = new List<int>();
@@ -117,35 +135,12 @@ namespace NET.A._2019.Sivko._02
             return intList;
         }
 
-        //Sort by selection
-        private static List<int> Minimize(List<int> temp, int currentIndex)
-        {
-            //looking for the index of the minimum element
-            while (currentIndex > 1)
-            {
-                int index = MinIndex(temp, currentIndex);
-
-                int t = temp[currentIndex - 1];
-                temp[currentIndex - 1] = temp[index];
-                temp[index] = t;
-
-                currentIndex--;
-            }
-    
-            return temp;
-        }
-
-        //Method of finding the position of the min element
-        private static int MinIndex(List<int> temp, int n)
-        {
-            int result = n - 1;
-            for (int i = result; i >= 0; i--)
-                if (temp[i] < temp[result])
-                    result = i;
-            return result;
-        }
-
-        //The method of finding the largest number
+        /// <summary>
+        /// The FindMaxNumber method finds the largest number
+        /// </summary>
+        /// <param name="temp">A list containing the digits of the original number</param>
+        /// <param name="index">Index of the swaped item</param>
+        /// <returns>The largest number</returns>
         private static List<int> FindMaxNumber(List<int> temp, out int index)
         {
             for (int i = 0; i < temp.Count; i++)
@@ -163,5 +158,44 @@ namespace NET.A._2019.Sivko._02
             index = -1;
             return temp;
         }
+
+        /// <summary>
+        /// The Minimize method approximates the previously found large number
+        /// to the original number using selection sorting 
+        /// </summary>
+        /// <param name="temp">List of digits of original number</param>
+        /// <param name="currentIndex">Separates the sorted part of the list from the part to be sorted</param>
+        /// <returns>Sorted list containing the desired number</returns>
+        private static List<int> Minimize(List<int> temp, int currentIndex)
+        {
+            //looking for the index of the minimum element
+            while (currentIndex > 1)
+            {
+                int index = MinIndex(temp, currentIndex);
+
+                int t = temp[currentIndex - 1];
+                temp[currentIndex - 1] = temp[index];
+                temp[index] = t;
+
+                currentIndex--;
+            }
+    
+            return temp;
+        }
+
+        /// <summary>
+        /// The auxiliary method for finding the min digit
+        /// </summary>
+        /// <param name="temp">List of digits</param>
+        /// <param name="n">The index of the extreme element</param>
+        /// <returns>The index of the minimum element</returns>
+        private static int MinIndex(List<int> temp, int n)
+        {
+            int result = n - 1;
+            for (int i = result; i >= 0; i--)
+                if (temp[i] < temp[result])
+                    result = i;
+            return result;
+        }      
     }
 }
