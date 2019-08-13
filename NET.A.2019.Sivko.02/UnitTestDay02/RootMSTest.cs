@@ -71,5 +71,18 @@ namespace UnitTestDay02
 
             Assert.AreEqual(expected, Math.Round(actual, 1));
         }
+
+        [TestMethod]
+        public void RootExceptionTest()
+        {
+            try
+            {
+                double result = Root.FindNthRoot(3, 8, -3);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                StringAssert.Contains("Wrong EPS", ex.Message);
+            }
+        }
     }
 }

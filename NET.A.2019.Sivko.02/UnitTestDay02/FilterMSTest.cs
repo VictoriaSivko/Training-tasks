@@ -1,6 +1,7 @@
 ﻿using NET.A._2019.Sivko._02;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System;
 
 namespace UnitTestDay02
 {
@@ -29,6 +30,36 @@ namespace UnitTestDay02
             List<int> actual = Filter.FilterDigit(source, number);
 
             CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FilterExceptionTest1()
+        {
+            List<int> source = new List<int>();
+
+            try
+            {
+                List<int> result = Filter.FilterDigit(source, 4);
+            }
+            catch (Exception ex)
+            {
+                StringAssert.Contains("Null object", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void FilterExceptionTest2()
+        {
+            List<int> source = new List<int>() { 3, 4};
+
+            try
+            {
+                List<int> result = Filter.FilterDigit(source, 45);
+            }
+            catch (Exception ex)
+            {
+                StringAssert.Contains("Number must be a digit", ex.Message);
+            }
         }
     }
 }

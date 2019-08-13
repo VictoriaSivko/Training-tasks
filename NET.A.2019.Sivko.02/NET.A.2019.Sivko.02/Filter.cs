@@ -15,6 +15,8 @@ namespace NET.A._2019.Sivko._02
         {
             if (number >= 10 || number < 0)
                 throw new Exception("Number must be a digit");
+            if(source == null)
+                throw new Exception("Null object");
 
             List<int> result = new List<int>();
             foreach(int i in source)
