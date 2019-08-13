@@ -36,3 +36,6 @@ C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\obj
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\obj\Debug\UnitTestDay02.csproj.CopyComplete
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\obj\Debug\UnitTestDay02.dll
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\obj\Debug\UnitTestDay02.pdb
+C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\bin\Debug\nunit.framework.dll
+C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\bin\Debug\nunit.framework.pdb
+C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\UnitTestDay02\bin\Debug\nunit.framework.xml

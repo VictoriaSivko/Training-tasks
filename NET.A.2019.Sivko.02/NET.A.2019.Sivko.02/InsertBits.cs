@@ -14,7 +14,7 @@ namespace NET.A._2019.Sivko._02
         ///<returns>The first number with bits of the second number at the i-j bit position</returns>
         public static int InsertNumber(int numberSource, int numberIn, int i, int j)
         {
-            if (i > j || i > 31 || j > 31)
+            if (i > j || i > 31 || j > 31 || i<0 || j<0)
                 throw new IndexOutOfRangeException("Wrong indices of the bits to insert (i or(and) j).");
 
             int[] bitNumberSource = ConvertIntToBitArray(numberSource);

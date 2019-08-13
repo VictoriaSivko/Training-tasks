@@ -53,11 +53,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilterTest.cs" />
-    <Compile Include="InsertBitsTest.cs" />
-    <Compile Include="NextBiggerNumberTest.cs" />
+    <Compile Include="FilterMSTest.cs" />
+    <Compile Include="InsertBitsNunitTest.cs" />
+    <Compile Include="InsertBitsMSTest.cs" />
+    <Compile Include="NextBiggerNumberMSTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RootTest.cs" />
+    <Compile Include="RootMSTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
