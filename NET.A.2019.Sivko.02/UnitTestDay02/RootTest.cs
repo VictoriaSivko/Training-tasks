@@ -5,7 +5,7 @@ using System;
 namespace UnitTestDay02
 {
     [TestClass]
-    public class RootTest
+    public class RootMSTest
     {
         [TestMethod]
         public void RootTest1()

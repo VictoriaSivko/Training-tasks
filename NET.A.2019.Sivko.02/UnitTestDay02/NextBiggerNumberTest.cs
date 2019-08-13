@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestDay02
 {
     [TestClass]
-    public class NextBiggerNumberTest
+    public class NextBiggerNumberMSTest
     {
         [TestMethod]
         public void BiggerNumberTest1()

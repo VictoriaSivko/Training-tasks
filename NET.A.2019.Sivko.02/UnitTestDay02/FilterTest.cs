@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace UnitTestDay02
 {
     [TestClass]
-    public class FilterTest
+    public class FilterMSTest
     {
         [TestMethod]
         public void FilterDigitTest1()
