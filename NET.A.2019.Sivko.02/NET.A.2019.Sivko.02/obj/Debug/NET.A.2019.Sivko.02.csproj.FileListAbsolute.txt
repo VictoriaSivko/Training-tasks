@@ -6,7 +6,7 @@ D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2
 D:\Epam\Training tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.pdb
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\bin\Debug\NET.A.2019.Sivko.02.dll
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\bin\Debug\NET.A.2019.Sivko.02.pdb
-C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.csprojAssemblyReference.cache
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.csproj.CoreCompileInputs.cache
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.dll
 C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.pdb
+C:\Users\Victoria\Documents\Training-tasks\NET.A.2019.Sivko.02\NET.A.2019.Sivko.02\obj\Debug\NET.A.2019.Sivko.02.csprojAssemblyReference.cache

@@ -1,5 +1,6 @@
 ﻿using NET.A._2019.Sivko._02;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace UnitTestDay02
 {
@@ -103,6 +104,21 @@ namespace UnitTestDay02
             int actual = NextBiggerNumber.FindNextBiggerNumber(source);
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void BiggerNumberExceptionTest()
+        {
+            int source = -42;
+
+            try
+            {
+                int actual = NextBiggerNumber.FindNextBiggerNumber(source);
+            }
+            catch(Exception ex)
+            {
+                StringAssert.Contains("Negative number used", ex.Message);
+            }
         }
     }
 }

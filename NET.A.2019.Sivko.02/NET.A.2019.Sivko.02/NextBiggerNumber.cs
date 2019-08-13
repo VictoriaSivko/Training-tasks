@@ -13,6 +13,9 @@ namespace NET.A._2019.Sivko._02
         /// <returns>The nearest largest number to the initial one</returns>
         public static int FindNextBiggerNumber(int source)
         {
+            if (source < 0)
+                throw new Exception("Negative number used");
+
             //create new List with numbers
             List<int> intList = СreateList(source);
 
