@@ -1,6 +1,0 @@
-D:\Epam\Training's tasks\NET.A.2019.Sivko.01\Sortings\bin\Debug\Sortings.dll
-D:\Epam\Training's tasks\NET.A.2019.Sivko.01\Sortings\bin\Debug\Sortings.pdb
-D:\Epam\Training's tasks\NET.A.2019.Sivko.01\Sortings\obj\Debug\Sortings.csprojAssemblyReference.cache
-D:\Epam\Training's tasks\NET.A.2019.Sivko.01\Sortings\obj\Debug\Sortings.csproj.CoreCompileInputs.cache
-D:\Epam\Training's tasks\NET.A.2019.Sivko.01\Sortings\obj\Debug\Sortings.dll
-D:\Epam\Training's tasks\NET.A.2019.Sivko.01\Sortings\obj\Debug\Sortings.pdb
