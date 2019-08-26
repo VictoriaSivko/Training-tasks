@@ -16,7 +16,25 @@ namespace Books
 
             bookListService.AddBook(new Book("904", "author", "bookTitle", "ACT", 2018, 273, 9.53));
 
+            try
+            {
+                bookListService.AddBook(new Book("904", "author", "bookTitle", "ACT", 2018, 273, 9.53));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             bookListService.RemoveBook(new Book("904", "author", "bookTitle", "ACT", 2018, 273, 9.53));
+
+            try
+            {
+                bookListService.RemoveBook(new Book("904", "author", "bookTitle", "ACT", 2018, 273, 9.53));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             Console.WriteLine("The original collection of books:\n");
             Output(bookListService.BookList);
@@ -33,9 +51,9 @@ namespace Books
             Console.WriteLine("\nBooks are sorted by price:\n");
             Output(bookListService.BookList);
 
-            bookListService.WriteToFile(@"D:\BookListStorage.txt");
+            bookListService.WriteToFile(@"D:\BookListStorage.bin");
 
-            BookListService bookList = new BookListService(BookListStorage.GetBooks(@"D:\BookListStorage.txt"));
+            BookListService bookList = new BookListService(BookListStorage.GetBooks(@"D:\BookListStorage.bin"));
 
             Console.ReadKey();
         }

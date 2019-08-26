@@ -4,6 +4,6 @@ namespace Books
 {
     public interface IFinder<T>
     {
-        bool Find(Book book);
+        bool Find(T obj);
     }
 }

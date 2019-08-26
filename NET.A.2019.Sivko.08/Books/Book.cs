@@ -101,6 +101,11 @@ namespace Books
             Price = price;
         }
 
+        /// <summary>
+        /// Checks for equivalence an object of a book with an object type
+        /// </summary>
+        /// <param name="obj">Object</param>
+        /// <returns>Returns true if the objects are equivalent and false otherwise</returns>
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -114,6 +119,11 @@ namespace Books
             return temp.isbn.Equals(isbn) && temp.author.Equals(author) && temp.bookTitle.Equals(bookTitle) && temp.publishing.Equals(publishing) && temp.publicationYear == publicationYear && temp.numberOfPages == numberOfPages && temp.price == price;
         }
 
+        /// <summary>
+        /// Checks for equivolence of two objects of type Book
+        /// </summary>
+        /// <param name="temp">An object of type Book</param>
+        /// <returns>Returns true if the objects are equivalent and false otherwise</returns>
         public bool Equals(Book temp)
         {
             if (temp == null)
@@ -135,6 +145,9 @@ namespace Books
             return String.Format($"ISBN {isbn}\n{author} \"{bookTitle}\"\nИздательство {publishing} {publicationYear} год\nСтраниц {numberOfPages}\nЦена {price} руб.");
         }
 
+        /// <summary>
+        /// It is used to sort an array of objects of type Book
+        /// </summary>
         public int CompareTo(Book other)
         {
             if (isbn.Length > other.isbn.Length)
