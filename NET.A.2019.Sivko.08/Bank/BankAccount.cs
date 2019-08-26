@@ -6,6 +6,7 @@ namespace Bank
     {
         private string id;
         private double balance;
+        public bool Open { get; private set; }
 
         public string ID
         {
@@ -31,12 +32,13 @@ namespace Bank
         }
         public int Bonus { get; private set; }
 
-        public BankAccount(string id, AccountOwner owner, double balance, int bonus = 0)
+        public BankAccount(string id, AccountOwner owner, double balance, int bonus = 0, bool open = true)
         {
             ID = id;
             Owner = owner;
             Balance = balance;
             Bonus = bonus;
+            Open = open;
         }
 
         /// <summary>
@@ -47,6 +49,9 @@ namespace Bank
         {
             if (money < 0)
                 throw new Exception("The amount of replenishment of the balance must be positive");
+
+            if (!Open)
+                throw new Exception("Attempt to Deposit money into a closed account");
 
             Balance += money;
 
@@ -62,12 +67,31 @@ namespace Bank
             if (money < 0)
                 throw new Exception("The amount of write-off must be positive");
 
+            if (!Open)
+                throw new Exception("Attempt to withdraw money from a closed account");
+
             if (Balance - money < 0)
                 throw new Exception("Account has insufficient funds");
 
             Balance -= money;
 
             Bonus -= CalculateBonus(money)/2;
+        }
+
+        /// <summary>
+        /// Open an account
+        /// </summary>
+        public void ToOpen()
+        {
+            Open = true;
+        }
+
+        /// <summary>
+        /// Close an account
+        /// </summary>
+        public void ToClose()
+        {
+            Open = false;
         }
 
         /// <summary>

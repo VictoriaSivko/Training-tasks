@@ -10,7 +10,7 @@ namespace Bank
         private const int BalancePercent = 5;
         private const int ChangePercent = 10;
 
-        public BaseAccount(string id, AccountOwner owner, double balance, int bonus = 0) : base(id, owner, balance, bonus)
+        public BaseAccount(string id, AccountOwner owner, double balance, int bonus = 0, bool open = true) : base(id, owner, balance, bonus, open)
         {
 
         }

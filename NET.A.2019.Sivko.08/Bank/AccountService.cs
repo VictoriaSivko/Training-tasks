@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace Bank
 {
@@ -16,7 +15,7 @@ namespace Bank
         /// <summary>
         /// Adds a new account to the AccountList
         /// </summary>
-        public void OpenNewAccount(BankAccount bankAccount)
+        public void AddNewAccount(BankAccount bankAccount)
         {
             foreach(BankAccount account in AccountList)
                 if(bankAccount.ID.Equals(account.ID))
@@ -28,7 +27,7 @@ namespace Bank
         /// <summary>
         /// Removes an account from the AccountList
         /// </summary>
-        public void CloseAccount(BankAccount bankAccount)
+        public void RemoveAccount(BankAccount bankAccount)
         {
             if (!AccountList.Contains(bankAccount))
                 throw new Exception("Attempt to delete a non-existing object");
@@ -39,51 +38,19 @@ namespace Bank
         /// <summary>
         /// Saves a list of accounts to a file
         /// </summary>
-        /// <param name="path">File path</param>
-        public void WriteToBinFile(string path)
+        /// <param name="storage">Storage type</param>
+        public void WriteToFile(IStorage<BankAccount> storage)
         {
-            using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate)))
-            {
-                foreach (BankAccount account in AccountList)
-                {
-                    binaryWriter.Write(account.GetType().FullName);
-                    binaryWriter.Write(account.ID);
-                    binaryWriter.Write(account.Owner.Name);
-                    binaryWriter.Write(account.Owner.Surname);
-                    binaryWriter.Write(account.Balance);
-                    binaryWriter.Write(account.Bonus);
-                }
-            }
+            storage.WriteFile(AccountList);
         }
 
         /// <summary>
-        /// Retrieves accounts from a file
+        /// Reads accounts from a file
         /// </summary>
-        /// <param name="path">File path</param>
-        /// <returns>List of bank accounts</returns>
-        public static List<BankAccount> GetAccounts(string path)
+        /// <param name="storage">Storage type</param>
+        public void ReadFromFile(IStorage<BankAccount> storage)
         {
-            List<BankAccount> temp = new List<BankAccount>();
-            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
-            {
-                while (reader.PeekChar() > -1)
-                {
-                    string fullName = reader.ReadString();
-
-                    string id = reader.ReadString();
-                    string name = reader.ReadString();
-                    string surname = reader.ReadString();
-                    double balance = reader.ReadDouble();
-                    int bonus = reader.ReadInt32();
-
-                    var type = Type.GetType(fullName);
-                    var obj = (BankAccount)Activator.CreateInstance(type, id, new AccountOwner(name, surname), balance, bonus);
-
-                    temp.Add(obj);
-                }
-            }
-
-            return temp;
+            AccountList = storage.ReadFile(AccountList);
         }
     }
 }
