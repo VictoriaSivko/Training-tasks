@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Day13Lib.Matrix
 {
+    /// <summary>
+    /// Implements a symmetrical matrix.
+    /// </summary>
+    /// <typeparam name="T">Type of data stored in the matrix.</typeparam>
     public class SymmetricalMatrix<T> : Matrix<T>
     {
         public SymmetricalMatrix(int size) : base(size) { }
@@ -28,6 +32,12 @@ namespace Day13Lib.Matrix
             matrix[i, j] = item;
         }
 
+        /// <summary>
+        /// Modifies two elements of the matrix to preserve the symmetry.
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <param name="item"></param>
         public void SymmetricalChange(int i, int j, T item)
         {
             CheckArguments(i, j);

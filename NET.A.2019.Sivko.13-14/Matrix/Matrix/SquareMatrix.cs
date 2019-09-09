@@ -2,6 +2,10 @@
 
 namespace Day13Lib.Matrix
 {
+    /// <summary>
+    /// Implements a square matrix.
+    /// </summary>
+    /// <typeparam name="T">Type of data stored in the matrix.</typeparam>
     public class SquareMatrix<T>: Matrix<T>
     {
         public SquareMatrix(int size) : base(size) { }

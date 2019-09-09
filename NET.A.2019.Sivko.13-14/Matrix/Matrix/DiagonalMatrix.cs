@@ -2,6 +2,10 @@
 
 namespace Day13Lib.Matrix
 {
+    /// <summary>
+    /// Implements a diagonal matrix.
+    /// </summary>
+    /// <typeparam name="T">Type of data stored in the matrix.</typeparam>
     public class DiagonalMatrixt<T> : Matrix<T>
     {
         public DiagonalMatrixt(int size) : base(size) { }
