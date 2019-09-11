@@ -1,27 +1,30 @@
-1. Develop a generalized Queue collection class that implements the basic
-operations to work with the queue, and providing the ability to
-iteration by implementing the iterator "manually" (without using the block-
-iterator yield). Test the methods of the developed class.
+Develop a type system to describe how to work with a Bank account.
+The status of the account is determined by its number, account holder (name,
+last name), the balance in the account and some bonus points that
+increase/decrease each time you Deposit/withdraw from the account to
+the values are different for replenishment and write-off and are calculated depending on
+some values of the "cost" of the balance and the "cost" of replenishment.
+The values of the" cost "of the balance and the" cost " of replenishment are integer
+values and depend on the type of account, which can be, for example, Base, Gold,
+Platinum.
+To work with the account, implement the following features:
+- make a Deposit to your account;
+- perform a debit from the account;
+- create new account;
+- close an account.
+Fake implementation can be used to store account information
+repository (storage) as a wrapper class for the List<Account> collection.
+  
+The classes must be demonstrated in a console application.
 
-2. Create generalized classes to represent square, symmetric, and
-diagonal matrix. Describe in generated classes
-an event that occurs when a matrix element with indexes (i,
-j) changed. Extend the functionality of the existing class hierarchy by adding
-possibility of operation of addition of two matrices of any type. Develop unit-
-tests.
+Consider the following options when designing types
+expansion/functionality changes
+- adding new account types;
+- change / add sources for storing account information;
+- change the logic of calculating bonus points;
+- change the logic of account number generation.
 
-3. Develop a generalized collection class BinarySearchTree (binary tree
-search's.) Provide for the possibility of using the plug-in
-an interface to implement an order relation. Implement three methods
-tree: direct (preorder), cross (inorder), reverse (postorder):
-use block iterator (yield) for implementation. Test
-designed class using the following types:
-- System.Int32 (use the comparison by default and connect
-comparator);
-- System.String (using the default plug-in
-comparator);
-- custom Book class for which objects are implemented
-relations order (using the default plug-in
-comparator);
-- custom Point structure for which objects are not implemented
-order relations (use plug-in comparator).
+Use "The Stairway pattern" to organize classes and interfaces”
+(“blank” in the archive AccountSystemDemo.7z).
+To resolve dependencies, use the Ninject framework.
+Test the Bll layer (NUnit and Moq frameworks).
