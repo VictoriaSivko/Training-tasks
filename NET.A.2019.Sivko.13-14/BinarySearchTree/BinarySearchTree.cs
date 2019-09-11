@@ -10,16 +10,17 @@ namespace Day13Lib
         Right
     }
 
-    public class BinarySearchTree<T> where T : IComparable
+    public class BinarySearchTree<T> : IEnumerable<T> where T : IComparable
     {
         public BinaryTreeNode<T> RootNode { get; set; }
 
-        public BinaryTreeNode<T> Add(BinaryTreeNode<T> node, BinaryTreeNode<T> currentNode)
+        public void Add(BinaryTreeNode<T> node, BinaryTreeNode<T> currentNode = null)
         {
-            if (node.ParentNode == null)
+            if (RootNode == null)
             {
                 node.ParentNode = null;
-                return RootNode = node;
+                RootNode = node;
+                return;
             }
 
             currentNode = currentNode ?? RootNode;
@@ -29,47 +30,47 @@ namespace Day13Lib
             int result = node.Data.CompareTo(currentNode.Data);
 
             if (result == 0)
-                return currentNode;
+                return;
             else if (result < 0)
             {
                 if (currentNode.LeftNode == null)
-                    return currentNode.LeftNode = node;
+                    currentNode.LeftNode = node;
                 else
-                    return Add(node, currentNode.LeftNode);
+                    Add(node, currentNode.LeftNode);
             }
             else
             {
                 if (currentNode.RightNode == null)
-                    return currentNode.RightNode = node;
+                    currentNode.RightNode = node;
                 else
-                    return Add(node, currentNode.RightNode);
+                    Add(node, currentNode.RightNode);
             }
         }
 
-        public BinaryTreeNode<T> Add(T data)
+        public void Add(T data)
         {
-            return Add(new BinaryTreeNode<T>(data));
+            Add(new BinaryTreeNode<T>(data));
         }
 
         public BinaryTreeNode<T> FindNode(T data, BinaryTreeNode<T> startNode = null)
         {
             startNode = startNode ?? RootNode;
 
-            int result = data.CompareTo(startWithNode.Data);
+            int result = data.CompareTo(startNode.Data);
 
             if (result == 0)
                 return startNode;
             else if (result < 0)
             {
-                if (startWithNode.LeftNode != null)
-                    return FindNode(data, startWithNode.LeftNode);
+                if (startNode.LeftNode != null)
+                    return FindNode(data, startNode.LeftNode);
                 else
                     return null;
             }
             else
             {
-                if (startWithNode.RightNode != null)
-                    return FindNode(data, startWithNode.RightNode);
+                if (startNode.RightNode != null)
+                    return FindNode(data, startNode.RightNode);
                 else
                     return null;
             }
@@ -77,16 +78,144 @@ namespace Day13Lib
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return PreOrder();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
+
+        public IEnumerator<T> PreOrder()
+        {
+            BinaryTreeNode<T> current = RootNode;
+            BinaryTreeNode<T> lastNode = null;
+
+            while (current != null)
+            {
+                if (lastNode == current.ParentNode)
+                {
+                    yield return current.Data;
+
+                    if (current.LeftNode != null)
+                    {
+                        lastNode = current;
+                        current = current.LeftNode;
+                        continue;
+                    }
+                    else
+                        lastNode = null;
+                }
+
+                if (lastNode == current.LeftNode)
+                {
+
+                    if (current.RightNode != null)
+                    {
+                        lastNode = current;
+                        current = current.RightNode;
+                        continue;
+                    }
+                    else
+                        lastNode = null;
+                }
+
+                if (lastNode == current.RightNode)
+                {
+                    lastNode = current;
+                    current = current.ParentNode;
+                }
+            }
+        }
+
+        public IEnumerator<T> InOrder()
+        {
+            BinaryTreeNode<T> current = RootNode;
+            BinaryTreeNode<T> lastNode = null;
+
+            while (current != null)
+            {
+                if (lastNode == current.ParentNode)
+                {
+                    if (current.LeftNode != null)
+                    {
+                        lastNode = current;
+                        current = current.LeftNode;
+                        continue;
+                    }
+                    else
+                        lastNode = null;
+                }
+
+                if (lastNode == current.LeftNode)
+                {
+                    yield return current.Data;
+
+                    if (current.RightNode != null)
+                    {
+                        lastNode = current;
+                        current = current.RightNode;
+                        continue;
+                    }
+                    else
+                        lastNode = null;
+                }
+
+                if (lastNode == current.RightNode)
+                {
+                    lastNode = current;
+                    current = current.ParentNode;
+                }
+            }
+        }
+
+        public IEnumerator<T> PostOrder()
+        {
+            BinaryTreeNode<T> current = RootNode;
+
+            BinaryTreeNode<T> lastNode = null;
+
+            while (current != null)
+            {
+                if (lastNode == current.ParentNode)
+                {
+                    if (current.LeftNode != null)
+                    {
+                        lastNode = current;
+                        current = current.LeftNode;
+                        continue;
+                    }
+                    else
+                        lastNode = null;
+                }
+
+                if (lastNode == current.LeftNode)
+                {
+
+
+                    if (current.RightNode != null)
+                    {
+                        lastNode = current;
+                        current = current.RightNode;
+                        continue;
+                    }
+                    else
+                        lastNode = null;
+                }
+
+                if (lastNode == current.RightNode)
+                {
+                    yield return current.Data;
+
+                    lastNode = current;
+                    current = current.ParentNode;
+                }
+            }
+
+        }
     }
 
-    public class BinaryTreeNode<T> : IComparable<T>  where T : IComparable
+    public class BinaryTreeNode<T> : IComparable<T> where T : IComparable
     {
         public T Data { get; set; }
         public BinaryTreeNode<T> LeftNode { get; set; }
