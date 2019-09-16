@@ -30,17 +30,18 @@ namespace FileCabinet
         public void WorkWithFileCabinet()
         {
             Console.Write("\nPlease enter your command:");
-            
+
             while (true)
             {
                 Console.Write("\n> ");
                 string command = Console.ReadLine().ToLower();
-                if (new Regex(@"^\s*info\s*$").IsMatch(command))
+
+                if (Regex.IsMatch(command, @"^\s*info\s*$"))
                 {
                     logger.Trace("User command \"Info\"");
                     Console.WriteLine($"You can use the following commands: {CommandInfo()}");
                 }
-                else if (new Regex(@"^\s*create\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*create\s*$"))
                 {
                     logger.Trace("User command \"Create\"");
                     Person temp = CreatePerson();
@@ -55,7 +56,7 @@ namespace FileCabinet
                     }
 
                 }
-                else if (new Regex(@"^\s*list\s*$").IsMatch(command) || new Regex(@"^\s*list\s+(.*,?)+$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*list\s*$") || Regex.IsMatch(command, @"^\s*list\s+(.*,?)+$"))
                 {
                     logger.Trace("User command \"List\"");
                     string criterion = Regex.Replace(command, @"^\s*list\s+", "").ToLower().Replace(" ", "");
@@ -67,19 +68,19 @@ namespace FileCabinet
                         Console.WriteLine(personService.ListByCriterion(criterion.Split(new char[] { ',' })));
                     }
                 }
-                else if (new Regex(@"^\s*stat\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*stat\s*$"))
                 {
                     logger.Trace("User command \"Stat\"");
                     Console.WriteLine(personService.Count + " records.");
                 }
-                else if (new Regex(@"^\s*find(\s+\w+\s+'\w+',?)+$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*find(\s+\w+\s+'\w+',?)+$"))
                 {
                     logger.Trace("User command \"Find\"");
                     string criterion = Regex.Replace(command, @"^\s*find\s+", "").ToLower().Replace(" ", "");
 
                     personService.FindByTag(criterion.Split(new char[] { ',' }));
                 }
-                else if (new Regex(@"^\s*edit\s+#[0-9]+\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*edit\s+#[0-9]+\s*$"))
                 {
                     logger.Trace("User command \"Edit\"");
                     int index = Convert.ToInt32(Regex.Replace(command, @"^\s*edit\s+#", "").ToLower().Replace(" ", ""));
@@ -92,9 +93,9 @@ namespace FileCabinet
 
                     personService[index] = CreatePerson();
                 }
-                else if (new Regex(@"^\s*export\s+\w+\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*export\s+\w+\s*$"))
                 {
-                    if (new Regex(@"^\s*export\s+csv\s*$").IsMatch(command))
+                    if (Regex.IsMatch(command, @"^\s*export\s+csv\s*$"))
                     {
                         logger.Trace("User command \"Export csv\"");
                         Console.WriteLine("The data will be appended to the end of the file.");
@@ -102,7 +103,7 @@ namespace FileCabinet
                         string name = Wait();
                         personService.Write(new CSVRepository(name));
                     }
-                    else if(new Regex(@"^\s*export\s+xml\s*$").IsMatch(command))
+                    else if (Regex.IsMatch(command, @"^\s*export\s+xml\s*$"))
                     {
                         logger.Trace("User command \"Export xml\"");
                         Console.WriteLine("The file will be overwritten!");
@@ -116,15 +117,15 @@ namespace FileCabinet
                         Console.WriteLine("Error: invalid file extension. Try again.");
                     }
                 }
-                else if (new Regex(@"^\s*import\s+\w+\s+\w+[.]\w+\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*import\s+\w+\s+\w+[.]\w+\s*$"))
                 {
-                    if (new Regex(@"^\s*import\s+csv\s+\w+.csv\s*").IsMatch(command))
+                    if (Regex.IsMatch(command, @"^\s*import\s+csv\s+\w+.csv\s*"))
                     {
                         logger.Trace("User command \"Import csv\"");
                         string name = Regex.Replace(command, @"^\s*import\s+csv\s+", "").Replace(" ", "");
                         personService.Read(new CSVRepository(name));
                     }
-                    else if (new Regex(@"^\s*import\s+xml\s+\w+.xml\s*").IsMatch(command))
+                    else if (Regex.IsMatch(command, @"^\s*import\s+xml\s+\w+.xml\s*"))
                     {
                         logger.Trace("User command \"Import xml\"");
                         string name = Regex.Replace(command, @"^\s*import\s+xml\s+", "").Replace(" ", "");
@@ -136,19 +137,19 @@ namespace FileCabinet
                         Console.WriteLine("Invalid file extension. Plaese try again.");
                     }
                 }
-                else if (new Regex(@"^\s*remove\s+#[0-9]+\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*remove\s+#[0-9]+\s*$"))
                 {
                     logger.Trace("User command \"Remove\"");
                     int index = Convert.ToInt32(Regex.Replace(command, @"^\s*remove\s+#", "").ToLower().Replace(" ", ""));
                     personService.Remove(index);
                 }
-                else if (new Regex(@"^\s*purge\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*purge\s*$"))
                 {
                     logger.Trace("User command \"Purge\"");
                     personService.Clear();
                     Console.WriteLine("Purge is successful.");
                 }
-                else if (new Regex(@"^\s*exit\s*$").IsMatch(command))
+                else if (Regex.IsMatch(command, @"^\s*exit\s*$"))
                 {
                     logger.Info("The user exits the application.");
                     Console.WriteLine("Dump records are created...");
