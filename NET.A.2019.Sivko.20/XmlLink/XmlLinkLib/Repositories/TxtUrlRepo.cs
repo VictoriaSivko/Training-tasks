@@ -1,13 +1,14 @@
 ﻿using System.IO;
 using XmlLinkLib.Interfaces;
-using System;
 using XmlLinkLib.Converters;
 using XmlLinkLib.Validation;
+using NLog;
 
 namespace XmlLinkLib.Repositories
 {
     public class TxtUrlRepo : IRepository<URLService>
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         /// <summary>
         /// Gets or sets name (path) of the file.
         /// </summary>
@@ -38,13 +39,15 @@ namespace XmlLinkLib.Repositories
                     {
                         if(urlValidation.Valid(str))
                             url.Add(convertStringToURL.Convert(str));
+                        else
+                        {
+                            logger.Warn($"Wrong format:{str}");
+                        }
                     }
 
                     return url;
                 }
             }
-
-            return url;
         }
 
         public void Write(URLService item)

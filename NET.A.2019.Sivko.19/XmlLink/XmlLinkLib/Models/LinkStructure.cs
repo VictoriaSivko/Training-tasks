@@ -34,10 +34,10 @@ namespace XmlLinkLib
 
     public class URL
     {
-        public string Host { get; }
-        public string[] UrlSegments { get; }
-        public string Key { get; }
-        public string Value { get; }
+        public string Host { get; set; }
+        public string[] UrlSegments { get; set; }
+        public string Key { get; set; }
+        public string Value { get; set; }
 
         public URL() { }
         public URL(string host, string[] urlSegments, string key = null, string value = null)

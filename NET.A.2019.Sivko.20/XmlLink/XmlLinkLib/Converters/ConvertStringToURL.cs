@@ -9,39 +9,30 @@ namespace XmlLinkLib.Converters
     {
         public URL Convert(string source)
         {
-            string key, value;
+            string[] components = Regex.Split(source, @"[/=?]");
+            List<string> segments = new List<string>();
+            URL url = new URL();
 
-            source = source.Remove(0, source.IndexOf("//")+2);
-            source = source.Remove(0, source.IndexOf("//")+2);
-            string host = source.Substring(0, source.IndexOf("/"));
-            source = source.Replace($"{host}/", "");
-
-            if(Regex.IsMatch(source, @"\w+"))
+            int i = components.Length-1;
+            while (i > 2)
             {
-                List<string> segments = new List<string>();
-
-                while (Regex.IsMatch(source, @"\w+"))
+                if (source.Contains("?") && source.Contains("=") && i == components.Length - 1)
                 {
-                    segments.Add(source.Substring(0, source.IndexOf("/")>0 ? source.IndexOf("/") : source.IndexOf("?") > 0? source.IndexOf("?") : source.Length));
-                    source = Regex.Replace(source, @"^\w*[/]?", "");
+                    url.Value = components[i--];
+                    url.Key = components[i--];
                 }
 
-                if (source.Contains("?") && source.Contains("="))
-                {
-                    key = source.Substring(1, source.LastIndexOf("=")-1);
-                    source = source.Replace($"?{key}=", "");
-                    value = source;
-                    return new URL(host, segments.ToArray(), key, value);
-                }
-                else
-                {
-                    return new URL(host, segments.ToArray());
-                }
+                if (!string.IsNullOrWhiteSpace(components[i]))
+                    segments.Add(components[i]);
+
+                i--;
             }
-            else
-            {
-                return new URL(host);
-            }
+
+            segments.Reverse();
+            url.UrlSegments = segments.ToArray();
+            url.Host = components[2];
+
+            return url;
         }
 
         public URL Convert(string source, IValidation<string> validation)
