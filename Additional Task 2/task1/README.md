@@ -142,7 +142,7 @@ Console.WriteLine("{0} customers in the service found.", customers.Length);
 ```
 20 customers in the service found.
 ```
-[Project](ссылка)
+[Project](https://github.com/VictoriaSivko/Training-tasks/tree/master/Additional%20Task%202/task1/NorthwindClientFramework)
 
 8. Найдите базовый класс, от которого унаследован _NorthwindModel.NorthwindEntities_. 
     * В какой сборке находится базовый класс? System.Data.Services.Client
@@ -203,7 +203,7 @@ static async Task Main(string[] args)
 
 Базовый клиент готов.
 
-[Project](ссылка)
+[Project](https://github.com/VictoriaSivko/Training-tasks/tree/master/Additional%20Task%202/task1/NorthwindClientCore)
 
 #### Утилизация потоков в асинхронной модели (уровень сложности - повышенный)
 
