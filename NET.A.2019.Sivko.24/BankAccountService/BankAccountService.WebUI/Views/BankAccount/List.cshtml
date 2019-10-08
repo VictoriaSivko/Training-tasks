@@ -1,0 +1,17 @@
+﻿@using BankAccountService.Domain.Entities
+@model IEnumerable<BankAccount>
+
+@{
+    ViewBag.Title = "Аккаунты";
+}
+
+@foreach (var p in @Model)
+{
+    <div>
+        <h3>@p.Name</h3>
+        <h4>Баланс: @p.Balance.ToString("# руб")</h4>
+        <p>Бонусы: @p.Bonus.ToString("# руб")</p>
+        <p>Открыт? @p.OpenAcc</p>
+        <hr>
+    </div>
+}
